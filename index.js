@@ -1,6 +1,6 @@
 'use strict';
 var through = require('through2'),
-  from = require('new-from'),
+  newFrom = require('new-from'),
   bl = require('bl');
 
 function map(fn) {
@@ -50,7 +50,7 @@ function map(fn) {
     }
 
     if (file.isStream()) {
-      file.contents = from([mapped]);
+      file.contents = newFrom([mapped]);
     }
 
     push(file, next);
