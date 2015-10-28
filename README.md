@@ -1,11 +1,10 @@
 # vinyl-map2
 
-Map [vinyl](https://github.com/wearefractal/vinyl) files' contents as strings,
-so you can easily use existing code without needing yet another
-[gulp](https://github.com/gulpjs/gulp) plugin!
+[![Circle CI](https://circleci.com/gh/yoshokatana/vinyl-map2/tree/master.svg?style=svg)](https://circleci.com/gh/yoshokatana/vinyl-map2/tree/master)
 
-Essentially, with the hope of reducing the number of gulp plugins out there
-which are *just* doing this:
+Map [vinyl](https://github.com/wearefractal/vinyl) files' contents as strings, so you can easily use existing code without needing yet another [gulp](https://github.com/gulpjs/gulp) plugin!
+
+Essentially, with the hope of reducing the number of gulp plugins out there which are *just* doing this:
 
 ``` javascript
 var through = require('through'),
@@ -29,9 +28,7 @@ module.exports = function() {
 }
 ```
 
-Of course, sometimes that's fine too, but this might help save some complexity
-for when it's too much hassle. It also takes care of the differences between
-handling Buffer, Stream and null values for your `file.contents`.
+Of course, sometimes that's fine too, but this might help save some complexity for when it's too much hassle. It also takes care of the differences between handling Buffer, Stream and null values for your `file.contents`.
 
 ## Usage
 
@@ -67,11 +64,9 @@ gulp.task('minify', function() {
 
 ### `map(mapper(contents, filename[, done]))`
 
-Returns a transform stream that takes vinyl files as input and spits out
-their modified copies as output.
+Returns a transform stream that takes vinyl files as input and spits out their modified copies as output.
 
-`mapper` is a function which will be called once for each file, with three
-arguments:
+`mapper` is a function which will be called once for each file, with three arguments:
 
 * `contents` is a string or [Buffer](http://nodejs.org/api/buffer.html)
 * `filename` is the value of `file.path`, which should generally be the file's
@@ -79,9 +74,7 @@ arguments:
   extension etc.
 * `done` is an _optional_ callback function. If your `mapper` function has a third argument, it will be called asynchronously. If not, the `mapper` will be called synchronously.
 
-The `mapper` function is expected to return a modified string value for the
-updated file contents. If nothing is returned, no modifications will be made
-to the file contents, but the output file will be cloned.
+The `mapper` function is expected to return a modified string value for the updated file contents. If nothing is returned, no modifications will be made to the file contents, but the output file will be cloned.
 
 If you run the `mapper` function asynchronously (by passing in a third `done` argument), you must call it instead of returning the file contents. It is a node-style callback: `done(err, contents)`
 
