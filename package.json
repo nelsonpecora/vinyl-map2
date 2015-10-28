@@ -17,7 +17,7 @@
   },
   "scripts": {
     "lint": "node_modules/.bin/eslint index.js test.js",
-    "test": "npm run lint && node test.js | node_modules/.bin/tap-spec"
+    "test": "npm run lint && node test.js"
   },
   "author": "Hugh Kennedy <hughskennedy@gmail.com> (http://hughsk.io/)",
   "contributors": [
