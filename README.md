@@ -8,24 +8,24 @@ Essentially, with the hope of reducing the number of gulp plugins out there
 which are *just* doing this:
 
 ``` javascript
-var through = require('through')
-var uglify = require('uglify-js')
+var through = require('through'),
+  uglify = require('uglify-js');
 
 module.exports = function() {
   return through(function(file) {
-    if (file.isNull()) return this.queue(file)
-    if (file.isStream()) throw new Error('no support')
+    if (file.isNull()) return this.queue(file);
+    if (file.isStream()) throw new Error('no support');
 
-    file.contents = file.contents.toString()
+    file.contents = file.contents.toString();
 
     var minified = uglify.minify(file.contents, {
       fromString: true
     })
 
-    file = file.clone()
-    file.contents = new Buffer(minified.code)
-    this.queue(file)
-  })
+    file = file.clone();
+    file.contents = new Buffer(minified.code);
+    this.queue(file);
+  });
 }
 ```
 
@@ -33,7 +33,7 @@ Of course, sometimes that's fine too, but this might help save some complexity
 for when it's too much hassle. It also takes care of the differences between
 handling Buffer, Stream and null values for your `file.contents`.
 
-## Usage ##
+## Usage
 
 ```
 npm install --save vinyl-map2
@@ -42,30 +42,30 @@ npm install --save vinyl-map2
 Here's a simple example, using gulp:
 
 ``` javascript
-var uglify = require('uglify-js')
-var map = require('vinyl-map2')
-var gulp = require('gulp')
+var uglify = require('uglify-js'),
+  map = require('vinyl-map2'),
+  gulp = require('gulp');
 
 gulp.task('minify', function() {
   var minify = map(function(code, filename) {
     // file contents are handed
     // over as buffers
-    code = code.toString()
+    code = code.toString();
 
     return uglify.minify(code, {
       fromString: true
-    }).code
+    }).code;
   })
 
   return gulp.src(['./index.js'])
     .pipe(minify)
-    .pipe(gulp.dest('./dist'))
+    .pipe(gulp.dest('./dist'));
 })
 ```
 
-## API ##
+## API
 
-### `map(mapper(contents, filename[, done]))` ###
+### `map(mapper(contents, filename[, done]))`
 
 Returns a transform stream that takes vinyl files as input and spits out
 their modified copies as output.
@@ -83,7 +83,7 @@ The `mapper` function is expected to return a modified string value for the
 updated file contents. If nothing is returned, no modifications will be made
 to the file contents, but the output file will be cloned.
 
-If you run the `mapper` function asynchronously (by using a third `done` argument), you must call it instead of returning the file contents. It is a node-style callback: `done(err, contents)`
+If you run the `mapper` function asynchronously (by passing in a third `done` argument), you must call it instead of returning the file contents. It is a node-style callback: `done(err, contents)`
 
 ## License ##
 
