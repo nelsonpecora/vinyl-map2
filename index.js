@@ -4,7 +4,7 @@ var through = require('through2'),
   bl = require('bl');
 
 function map(fn) {
-  var done = false,
+  var done = null,
     pending = 0,
     stream;
 
@@ -88,18 +88,13 @@ function map(fn) {
     next();
   }
 
-  function flush() {
-    check(done = true);
+  function flush(cb) {
+    check(done = cb);
   }
 
   function check() {
     if (!pending && done) {
-      process.nextTick(function () {
-        stream.emit('end');
-        process.nextTick(function () {
-          stream.emit('close');
-        });
-      });
+      done();
     }
   }
 }
