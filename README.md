@@ -78,6 +78,12 @@ The `mapper` function is expected to return a modified string value for the upda
 
 If you run the `mapper` function asynchronously (by passing in a third `done` argument), you must call it instead of returning the file contents. It is a node-style callback: `done(err, contents)`
 
-## License ##
+## License
 
 MIT. See [LICENSE.md](http://github.com/yoshokatana/vinyl-map2/blob/master/LICENSE.md) for details.
+
+## Contributing
+
+This project was forked from [hughsk/vinyl-map](https://github.com/hughsk/vinyl-map), and will be actively maintained. I welcome contributions in the form of both bug reports and pull requests!
+
+Fork the project and submit a PR on a branch that is not named `master`. We use linting tools and unit tests, which are built constantly using continuous integration. If you find a bug, it would be appreciated if you could also submit a branch with a failing unit test to show your case.
