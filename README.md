@@ -1,4 +1,4 @@
-# vinyl-map [![Flattr this!](https://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=hughskennedy&url=http://github.com/hughsk/vinyl-map&title=vinyl-map&description=hughsk/vinyl-map%20on%20GitHub&language=en_GB&tags=flattr,github,javascript&category=software)[![experimental](http://hughsk.github.io/stability-badges/dist/experimental.svg)](http://github.com/hughsk/stability-badges) #
+# vinyl-map2
 
 Map [vinyl](https://github.com/wearefractal/vinyl) files' contents as strings,
 so you can easily use existing code without needing yet another
@@ -35,13 +35,15 @@ handling Buffer, Stream and null values for your `file.contents`.
 
 ## Usage ##
 
-[![vinyl-map](https://nodei.co/npm/vinyl-map.png?mini=true)](https://nodei.co/npm/vinyl-map)
+```
+npm install --save vinyl-map2
+```
 
 Here's a simple example, using gulp:
 
 ``` javascript
 var uglify = require('uglify-js')
-var map = require('vinyl-map')
+var map = require('vinyl-map2')
 var gulp = require('gulp')
 
 gulp.task('minify', function() {
@@ -59,7 +61,6 @@ gulp.task('minify', function() {
     .pipe(minify)
     .pipe(gulp.dest('./dist'))
 })
-
 ```
 
 ## API ##
@@ -83,4 +84,4 @@ to the file contents, but the output file will be cloned.
 
 ## License ##
 
-MIT. See [LICENSE.md](http://github.com/hughsk/vinyl-map/blob/master/LICENSE.md) for details.
+MIT. See [LICENSE.md](http://github.com/yoshokatana/vinyl-map2/blob/master/LICENSE.md) for details.
