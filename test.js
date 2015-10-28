@@ -191,12 +191,12 @@ test('async with third arg passed in', function (t) {
 
 test('async emits error if passed to done', function (t) {
   var stream = map(function (src, filename, done) {
-      done(new Error('should be caught'));
-    }).on('error', function (err) {
-      t.ok(err, 'error was caught and emitted');
-    }).on('data', function () {
-      t.fail('should not get emitted as "data"');
-    });
+    done(new Error('should be caught'));
+  }).on('error', function (err) {
+    t.ok(err, 'error was caught and emitted');
+  }).on('data', function () {
+    t.fail('should not get emitted as "data"');
+  });
 
   t.plan(1);
 
