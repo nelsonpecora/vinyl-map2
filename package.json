@@ -4,13 +4,13 @@
   "version": "1.2.0",
   "main": "index.js",
   "dependencies": {
-    "through2": "^0.4.1",
-    "bl": "^0.7.0",
+    "through2": "^2.0.0",
+    "bl": "^1.0.0",
     "new-from": "0.0.3"
   },
   "devDependencies": {
     "eslint": "^1.7.3",
-    "gulp": "~3.5.2",
+    "gulp": "~3.9.0",
     "gulp-util": "^3.0.7",
     "tap-spec": "^4.1.0",
     "tape": "^4.2.2"
