@@ -1,5 +1,7 @@
 # vinyl-map2
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/nelsonpecora/vinyl-map2.svg)](https://greenkeeper.io/)
+
 [![Circle CI](https://circleci.com/gh/yoshokatana/vinyl-map2/tree/master.svg?style=svg)](https://circleci.com/gh/yoshokatana/vinyl-map2/tree/master)
 
 Map [vinyl](https://github.com/wearefractal/vinyl) files' contents as strings, so you can easily use existing code without needing yet another [gulp](https://github.com/gulpjs/gulp) plugin!
