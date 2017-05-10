@@ -9,7 +9,7 @@
     "new-from": "0.0.3"
   },
   "devDependencies": {
-    "eslint": "^1.7.3",
+    "eslint": "^3.19.0",
     "gulp": "~3.9.0",
     "gulp-util": "^3.0.7",
     "tap-spec": "^4.1.0",
